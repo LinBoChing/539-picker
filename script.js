@@ -1,3 +1,4 @@
+// 產生選號功能
 function generateNumbers() {
   const numbers = new Set();
   while (numbers.size < 5) {
@@ -6,11 +7,14 @@ function generateNumbers() {
   }
   document.getElementById('result').textContent = '選號結果：' + Array.from(numbers).join(', ');
 }
+
+// 分頁切換功能
 function switchTab(tab) {
   document.getElementById('picker-tab').style.display = tab === 'picker' ? 'block' : 'none';
   document.getElementById('noDraw-tab').style.display = tab === 'noDraw' ? 'block' : 'none';
 }
 
+// 不出玩法分析功能
 function checkNoDraw() {
   const noDraw = document.getElementById('noDrawInput').value.trim().split(/\s+/);
   const result = document.getElementById('drawResultInput').value.trim().split(/\s+/);
