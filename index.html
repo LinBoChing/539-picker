@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>539選號神器</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <h1>539選號神器</h1>
 
-  <!-- 分頁按鈕 -->
+  <!-- 分頁切換按鈕 -->
   <div>
     <button onclick="switchTab('picker')">選號神器</button>
     <button onclick="switchTab('noDraw')">不出玩法分析</button>
     <button onclick="switchTab('combo')">連碰分析器</button>
+    <button onclick="switchTab('ai')">AI選號推薦</button>
   </div>
 
-  <!-- 選號區塊 -->
+  <!-- 選號區 -->
   <div id="picker-tab" class="tab">
     <button onclick="generateNumbers()">產生選號</button>
     <div id="result" style="margin-top: 20px;"></div>
   </div>
 
-  <!-- 不出玩法區塊 -->
+  <!-- 不出玩法區 -->
   <div id="noDraw-tab" class="tab" style="display:none; margin-top:20px;">
     <p>輸入你的不出號碼（以空格分隔）：</p>
-    <input type="text" id="noDrawInput" placeholder="例如：02 13 27 31 35">
+    <input type="text" id="noDrawInput" placeholder="例如：02 13 27 31 35"/>
     <p>輸入開獎號碼：</p>
-    <input type="text" id="drawResultInput" placeholder="例如：02 12 19 25 35">
+    <input type="text" id="drawResultInput" placeholder="例如：02 12 19 25 35"/>
     <br><br>
     <button onclick="checkNoDraw()">判斷是否中獎</button>
     <div id="noDrawResult" style="margin-top: 15px; font-weight: bold;"></div>
@@ -36,7 +37,7 @@
   <!-- 連碰分析器 -->
   <div id="combo-tab" class="tab" style="display:none; margin-top:20px;">
     <p>輸入自選號碼（空格分隔，2~20碼）：</p>
-    <input type="text" id="comboNumbers" placeholder="例如：02 04 07 12 18 20">
+    <input type="text" id="comboNumbers" placeholder="例如：02 04 07 12 18 20"/>
     <p>選擇玩法：</p>
     <select id="comboType">
       <option value="2">兩星連碰</option>
@@ -44,12 +45,21 @@
       <option value="4">四星連碰</option>
     </select>
     <p>輸入倍數：</p>
-    <input type="number" id="comboRate" value="1" step="0.01" min="0.01" max="10">
+    <input type="number" id="comboRate" value="1" step="0.01" min="0.01" max="10"/>
     <p>輸入開獎號碼：</p>
-    <input type="text" id="comboResult" placeholder="例如：02 04 18 23 37">
+    <input type="text" id="comboResult" placeholder="例如：02 04 18 23 37"/>
     <br><br>
     <button onclick="analyzeCombo()">計算結果</button>
     <div id="comboOutput" style="margin-top: 15px; font-weight: bold;"></div>
+  </div>
+
+  <!-- AI 選號推薦 -->
+  <div id="ai-tab" class="tab" style="display:none; margin-top:20px;">
+    <p>🔍 輸入近100期開獎號碼（每期一行，5碼空格分隔）：</p>
+    <textarea id="historyInput" rows="10" style="width:90%;" placeholder="例如：02 13 22 27 31"></textarea>
+    <br><br>
+    <button onclick="analyzeAI()">分析推薦</button>
+    <div id="aiOutput" style="margin-top: 15px; font-weight: bold;"></div>
   </div>
 
   <script src="script.js"></script>
