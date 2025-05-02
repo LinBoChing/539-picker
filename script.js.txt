@@ -1,7 +1,0 @@
-function generateNumbers() {
-  const numbers = new Set();
-  while (numbers.size < 5) {
-    numbers.add(String(Math.floor(Math.random() * 39 + 1)).padStart(2, '0'));
-  }
-  document.getElementById('result').textContent = '選號結果：' + Array.from(numbers).join(', ');
-}
