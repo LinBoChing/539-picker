@@ -8,8 +8,29 @@
 </head>
 <body>
   <h1>539選號神器</h1>
-  <button onclick="generateNumbers()">產生選號</button>
-  <div id="result" style="margin-top: 20px;"></div>
+
+  <!-- 分頁按鈕 -->
+  <div>
+    <button onclick="switchTab('picker')">選號神器</button>
+    <button onclick="switchTab('noDraw')">不出玩法分析</button>
+  </div>
+
+  <!-- 選號區塊 -->
+  <div id="picker-tab" class="tab">
+    <button onclick="generateNumbers()">產生選號</button>
+    <div id="result" style="margin-top: 20px;"></div>
+  </div>
+
+  <!-- 不出玩法分析區塊 -->
+  <div id="noDraw-tab" class="tab" style="display:none; margin-top:20px;">
+    <p>輸入你的不出號碼（以空格分隔）：</p>
+    <input type="text" id="noDrawInput" placeholder="例如：02 13 27 31 35">
+    <p>輸入開獎號碼：</p>
+    <input type="text" id="drawResultInput" placeholder="例如：02 12 19 25 35">
+    <br><br>
+    <button onclick="checkNoDraw()">判斷是否中獎</button>
+    <div id="noDrawResult" style="margin-top: 15px; font-weight: bold;"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
